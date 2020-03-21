@@ -4,11 +4,11 @@ using static Screamer.Primitives.Guard;
 
 namespace Screamer.Primitives.Constraints
 {
-    public sealed class MaxLengthConstraint : IConstraint<string>
+    public sealed class MaxStringLengthConstraint : IConstraint<string>
     {
         private readonly uint length;
 
-        public MaxLengthConstraint(uint length) => this.length = length;
+        public MaxStringLengthConstraint(uint length) => this.length = length;
 
         public CheckResult Check(string value)
         {
@@ -16,7 +16,7 @@ namespace Screamer.Primitives.Constraints
 
             return value.Length <= length
                 ? CheckResult.Succeeded
-                : CheckResult.CreateViolated(Format(MaxLengthConstraint_Violation, length, value.Length));
+                : CheckResult.CreateViolated(Format(MaxStringLengthConstraint_Violation, length, value.Length));
         }
     }
 }

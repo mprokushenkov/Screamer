@@ -7,12 +7,12 @@ using Xunit;
 
 namespace Screamer.Primitives.Tests.Constraints
 {
-    public class MaxLengthConstraintTests
+    public class MaxStringLengthConstraintTests
     {
         [Theory]
         [AutoData]
         public void PublicSurfaceShouldNotAllowNullArgs(GuardClauseAssertion assertion) =>
-            assertion.Verify(typeof(MaxLengthConstraint));
+            assertion.Verify(typeof(MaxStringLengthConstraint));
 
         [Fact]
         public void ShorterStringShouldNeverViolateConstraint()
@@ -24,7 +24,7 @@ namespace Screamer.Primitives.Tests.Constraints
                 where s?.Length <= maxLength
                 select s;
 
-            var constraint = new MaxLengthConstraint(maxLength);
+            var constraint = new MaxStringLengthConstraint(maxLength);
 
             // Exercise system and verify outcome
             Prop.ForAll(
@@ -43,7 +43,7 @@ namespace Screamer.Primitives.Tests.Constraints
                 where s?.Length > maxLength
                 select s;
 
-            var constraint = new MaxLengthConstraint(maxLength);
+            var constraint = new MaxStringLengthConstraint(maxLength);
 
             // Exercise system and verify outcome
             Prop.ForAll(generator.ToArbitrary(), s =>

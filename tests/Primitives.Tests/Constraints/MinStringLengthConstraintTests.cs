@@ -7,12 +7,12 @@ using Xunit;
 
 namespace Screamer.Primitives.Tests.Constraints
 {
-    public class MinLengthConstraintTests
+    public class MinStringLengthConstraintTests
     {
         [Theory]
         [AutoData]
         public void PublicSurfaceShouldNotAllowNullArgs(GuardClauseAssertion assertion) =>
-            assertion.Verify(typeof(MinLengthConstraint));
+            assertion.Verify(typeof(MinStringLengthConstraint));
 
         [Fact]
         public void LongerStringShouldNeverViolateConstraint()
@@ -24,7 +24,7 @@ namespace Screamer.Primitives.Tests.Constraints
                 where s?.Length >= minLength
                 select s;
 
-            var constraint = new MinLengthConstraint(minLength);
+            var constraint = new MinStringLengthConstraint(minLength);
 
             // Exercise system and verify outcome
             Prop.ForAll(
@@ -43,7 +43,7 @@ namespace Screamer.Primitives.Tests.Constraints
                 where s?.Length < minLength
                 select s;
 
-            var constraint = new MinLengthConstraint(minLength);
+            var constraint = new MinStringLengthConstraint(minLength);
 
             // Exercise system and verify outcome
             Prop.ForAll(generator.ToArbitrary(), s =>
