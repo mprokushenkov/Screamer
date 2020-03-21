@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <Product>Screamer class library</Product>
+    <Copyright>Mikhail Prokushenkov</Copyright>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Authors>$(Copyright)</Authors>
+  </PropertyGroup>
+</Project>
