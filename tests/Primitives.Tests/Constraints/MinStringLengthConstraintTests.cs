@@ -21,7 +21,7 @@ namespace Screamer.Primitives.Tests.Constraints
             const uint minLength = 10;
 
             var generator = from s in Arb.Generate<string>()
-                where s?.Length >= minLength
+                where s != null && s.Length >= minLength
                 select s;
 
             var constraint = new MinStringLengthConstraint(minLength);
@@ -40,7 +40,7 @@ namespace Screamer.Primitives.Tests.Constraints
             const uint minLength = 10;
 
             var generator = from s in Arb.Generate<string>()
-                where s?.Length < minLength
+                where s != null && s.Length < minLength
                 select s;
 
             var constraint = new MinStringLengthConstraint(minLength);

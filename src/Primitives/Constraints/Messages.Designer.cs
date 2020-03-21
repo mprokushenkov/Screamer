@@ -77,5 +77,14 @@ namespace Screamer.Primitives.Constraints {
                 return ResourceManager.GetString("MinStringLengthConstraint.Violation", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String length must be &apos;{0}&apos; but &apos;{1}&apos;..
+        /// </summary>
+        internal static string StringLengthConstraint_Violation {
+            get {
+                return ResourceManager.GetString("StringLengthConstraint.Violation", resourceCulture);
+            }
+        }
     }
 }

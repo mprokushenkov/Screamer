@@ -7,24 +7,24 @@ using Xunit;
 
 namespace Screamer.Primitives.Tests.Constraints
 {
-    public class MaxStringLengthConstraintTests
+    public class StringLengthConstraintTests
     {
         [Theory]
         [AutoData]
         public void PublicSurfaceShouldNotAllowNullArgs(GuardClauseAssertion assertion) =>
-            assertion.Verify(typeof(MaxStringLengthConstraint));
+            assertion.Verify(typeof(StringLengthConstraint));
 
         [Fact]
-        public void ShorterStringShouldNeverViolateConstraint()
+        public void StringWithCorrectLengthShouldNeverViolateConstraint()
         {
             // Fixture setup
-            const uint maxLength = 20;
+            const uint length = 10;
 
             var generator = from s in Arb.Generate<string>()
-                where s != null && s.Length <= maxLength
+                where s != null && s.Length == length
                 select s;
 
-            var constraint = new MaxStringLengthConstraint(maxLength);
+            var constraint = new StringLengthConstraint(length);
 
             // Exercise system and verify outcome
             Prop.ForAll(
@@ -34,23 +34,23 @@ namespace Screamer.Primitives.Tests.Constraints
         }
 
         [Fact]
-        public void LongerStringShouldAlwaysViolateConstraint()
+        public void StringWithIncorrectLengthShouldAlwaysViolateConstraint()
         {
             // Fixture setup
-            const uint maxLength = 20;
+            const uint length = 10;
 
             var generator = from s in Arb.Generate<string>()
-                where s != null && s.Length > maxLength
+                where s != null && s.Length != length
                 select s;
 
-            var constraint = new MaxStringLengthConstraint(maxLength);
+            var constraint = new StringLengthConstraint(length);
 
             // Exercise system and verify outcome
             Prop.ForAll(generator.ToArbitrary(), s =>
             {
                 var result = constraint.Check(s);
                 result.Violated.Should().BeTrue();
-                result.Message.Should().Be($"String length must be smaller or equal '{maxLength}' but '{s.Length}'.");
+                result.Message.Should().Be($"String length must be '{length}' but '{s.Length}'.");
             }).QuickCheckThrowOnFailure();
         }
     }
