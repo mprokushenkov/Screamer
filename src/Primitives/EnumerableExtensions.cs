@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Screamer.Primitives
 {
-    public static class EnumerableExtensions
+    internal static class EnumerableExtensions
     {
         public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
         {
