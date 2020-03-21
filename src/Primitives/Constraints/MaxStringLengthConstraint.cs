@@ -6,17 +6,17 @@ namespace Screamer.Primitives.Constraints
 {
     public sealed class MaxStringLengthConstraint : IConstraint<string>
     {
-        private readonly uint length;
+        private readonly uint maxLength;
 
-        public MaxStringLengthConstraint(uint length) => this.length = length;
+        public MaxStringLengthConstraint(uint maxLength) => this.maxLength = maxLength;
 
         public CheckResult Check(string value)
         {
             CheckNull(value, nameof(value));
 
-            return value.Length <= length
+            return value.Length <= maxLength
                 ? CheckResult.Succeeded
-                : CheckResult.CreateViolated(Format(MaxStringLengthConstraint_Violation, length, value.Length));
+                : CheckResult.CreateViolated(Format(MaxStringLengthConstraint_Violation, maxLength, value.Length));
         }
     }
 }

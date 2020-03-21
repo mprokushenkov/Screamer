@@ -2,7 +2,7 @@
 
 namespace Screamer.Primitives.Constraints
 {
-    public struct CheckResult
+    public readonly struct CheckResult
     {
         private CheckResult(bool violated, string message)
         {

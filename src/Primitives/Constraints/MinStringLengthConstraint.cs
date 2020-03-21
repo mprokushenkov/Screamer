@@ -6,17 +6,17 @@ namespace Screamer.Primitives.Constraints
 {
     public sealed class MinStringLengthConstraint : IConstraint<string>
     {
-        private readonly uint length;
+        private readonly uint minLength;
 
-        public MinStringLengthConstraint(uint length) => this.length = length;
+        public MinStringLengthConstraint(uint minLength) => this.minLength = minLength;
 
         public CheckResult Check(string value)
         {
             CheckNull(value, nameof(value));
 
-            return value.Length >= length
+            return value.Length >= minLength
                 ? CheckResult.Succeeded
-                : CheckResult.CreateViolated(Format(MinStringLengthConstraint_Violation, length, value.Length));
+                : CheckResult.CreateViolated(Format(MinStringLengthConstraint_Violation, minLength, value.Length));
         }
     }
 }
