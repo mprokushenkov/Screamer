@@ -79,6 +79,15 @@ namespace Screamer.Primitives.Constraints {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to String must contains only digit symbols..
+        /// </summary>
+        internal static string NumericStringConstraint_Violation {
+            get {
+                return ResourceManager.GetString("NumericStringConstraint.Violation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to String length must be &apos;{0}&apos; but &apos;{1}&apos;..
         /// </summary>
         internal static string StringLengthConstraint_Violation {
