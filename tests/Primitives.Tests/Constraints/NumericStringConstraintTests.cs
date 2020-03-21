@@ -1,4 +1,5 @@
-﻿using AutoFixture.Idioms;
+﻿using System.Linq;
+using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using FsCheck;
@@ -32,7 +33,7 @@ namespace Screamer.Primitives.Tests.Constraints
         public void NotNumericStringStringShouldAlwaysViolateConstraint()
         {
             // Fixture setup
-            var generator = from s in Arb.Generate<string>() where s != null select s;
+            var generator = from s in Arb.Generate<string>() where s != null && !s.Any(char.IsDigit) select s;
             var constraint = new NumericStringConstraint();
 
             // Exercise system and verify outcome
