@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.Environment;
 using static Screamer.Primitives.Guard;
 
 namespace Screamer.Primitives.Constraints
@@ -14,8 +15,8 @@ namespace Screamer.Primitives.Constraints
 
             if (results.Any())
             {
-                var message = results.Select(r => r.Message).Aggregate((acc, v) => $"{acc}{Environment.NewLine}{v}");
-                throw new ArgumentOutOfRangeException(nameof(value), value, message);
+                var message = results.Select(r => r.Message).Aggregate((acc, v) => $"{acc}{NewLine}{v}");
+                throw new ArgumentOutOfRangeException(null, value, message);
             }
 
             Value = value;

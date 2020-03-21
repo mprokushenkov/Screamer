@@ -2,9 +2,9 @@
 using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;
-using FsCheck;
 using Screamer.Primitives.Constraints;
 using Xunit;
+using static System.Environment;
 
 namespace Screamer.Primitives.Tests.Constraints
 {
@@ -19,27 +19,25 @@ namespace Screamer.Primitives.Tests.Constraints
         public void ToStringShouldReturnValue()
         {
             // Fixture setup
-            var string2 = new String2("AB");
+            var string2 = new String2("12");
 
             // Exercise system and verify outcome
             string2.ToString().Should().Be(string2.Value);
         }
 
         [Fact]
-        public void ExceptionShouldBeThrownIfValueDoesNotMatchRequiredLength()
+        public void ExceptionShouldBeThrownIfValueDoesNotMatchConstraints()
         {
             // Fixture setup
-            var generator = from s in Arb.Generate<string>()
-                where s != null && s.Length != 2
-                select s;
+            // ReSharper disable once ObjectCreationAsStatement
+            Action call = () =>  new String2("ABC");
+
+            var message = "String length must be '2' but '3'.";
+            message += $"{NewLine}String must contains only digit symbols.";
+            message += $"{NewLine}Actual value was ABC.";
 
             // Exercise system and verify outcome
-            Prop.ForAll(generator.ToArbitrary(), s =>
-            {
-                // ReSharper disable once ObjectCreationAsStatement
-                Action call = () => new String2(s);
-                call.Should().Throw<ArgumentOutOfRangeException>();
-            }).QuickCheckThrowOnFailure();
+            call.Should().Throw<ArgumentOutOfRangeException>().WithMessage(message);
         }
 
         [Fact]
@@ -48,10 +46,10 @@ namespace Screamer.Primitives.Tests.Constraints
             // Fixture setup
 
             // Exercise system
-            string actual = new String2("AB");
+            string actual = new String2("12");
 
             // Verify outcome
-            actual.Should().Be("AB");
+            actual.Should().Be("12");
         }
 
         [Fact]
@@ -70,7 +68,7 @@ namespace Screamer.Primitives.Tests.Constraints
         private class String2 : ConstrainedString
         {
             public String2(string value)
-                : base(value, new MinStringLengthConstraint(2), new MaxStringLengthConstraint(2))
+                : base(value, new StringLengthConstraint(2), new NumericStringConstraint())
             {
             }
         }
