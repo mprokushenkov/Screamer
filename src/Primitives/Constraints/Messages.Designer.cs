@@ -88,6 +88,15 @@ namespace Screamer.Primitives.Constraints {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to String does not match pattern &apos;{0}&apos;..
+        /// </summary>
+        internal static string RegexConstraint_Violation {
+            get {
+                return ResourceManager.GetString("RegexConstraint.Violation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to String length must be &apos;{0}&apos; but &apos;{1}&apos;..
         /// </summary>
         internal static string StringLengthConstraint_Violation {

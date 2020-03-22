@@ -126,6 +126,9 @@
   <data name="NumericStringConstraint.Violation" xml:space="preserve">
     <value>String must contains only digit symbols.</value>
   </data>
+  <data name="RegexConstraint.Violation" xml:space="preserve">
+    <value>String does not match pattern '{0}'.</value>
+  </data>
   <data name="StringLengthConstraint.Violation" xml:space="preserve">
     <value>String length must be '{0}' but '{1}'.</value>
   </data>
