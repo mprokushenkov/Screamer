@@ -4,7 +4,7 @@ using static Screamer.Primitives.Constraints.Messages;
 
 namespace Screamer.Primitives.Constraints
 {
-    public sealed class NumericStringConstraint : IConstraint<string>
+    public sealed class DigitStringConstraint : IConstraint<string>
     {
         public CheckResult Check(string value)
         {

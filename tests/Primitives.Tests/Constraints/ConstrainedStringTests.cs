@@ -68,7 +68,7 @@ namespace Screamer.Primitives.Tests.Constraints
         private class String2 : ConstrainedString
         {
             public String2(string value)
-                : base(value, new StringLengthConstraint(2), new NumericStringConstraint())
+                : base(value, new StringLengthConstraint(2), new DigitStringConstraint())
             {
             }
         }

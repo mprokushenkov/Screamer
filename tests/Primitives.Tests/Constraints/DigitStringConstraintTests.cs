@@ -8,19 +8,19 @@ using Xunit;
 
 namespace Screamer.Primitives.Tests.Constraints
 {
-    public class NumericStringConstraintTests
+    public class DigitStringConstraintTests
     {
         [Theory]
         [AutoData]
         public void PublicSurfaceShouldNotAllowNullArgs(GuardClauseAssertion assertion) =>
-            assertion.Verify(typeof(NumericStringConstraint));
+            assertion.Verify(typeof(DigitStringConstraint));
 
         [Fact]
         public void NumericStringShouldNeverViolateConstraint()
         {
             // Fixture setup
             var generator = from n in Arb.Generate<uint>() select n.ToString();
-            var constraint = new NumericStringConstraint();
+            var constraint = new DigitStringConstraint();
 
             // Exercise system and verify outcome
             Prop.ForAll(
@@ -34,7 +34,7 @@ namespace Screamer.Primitives.Tests.Constraints
         {
             // Fixture setup
             var generator = from s in Arb.Generate<string>() where s != null && !s.Any(char.IsDigit) select s;
-            var constraint = new NumericStringConstraint();
+            var constraint = new DigitStringConstraint();
 
             // Exercise system and verify outcome
             Prop.ForAll(generator.ToArbitrary(), s =>
