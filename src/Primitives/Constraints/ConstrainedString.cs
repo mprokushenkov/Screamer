@@ -1,30 +1,10 @@
-﻿using System;
-using System.Linq;
-using static System.Environment;
-using static Screamer.Primitives.Guard;
-
-namespace Screamer.Primitives.Constraints
+﻿namespace Screamer.Primitives.Constraints
 {
-    public abstract class ConstrainedString
+    public abstract class ConstrainedString : ConstrainedType<string>
     {
-        protected ConstrainedString(string value, params IConstraint<string>[] constraints)
+        protected ConstrainedString(string value, params IConstraint<string>[] constraints) : base(value, constraints)
         {
-            CheckNull(value, nameof(value));
-
-            var results = constraints.Select(c => c.Check(value)).Where(r => r.Violated).ToArray();
-
-            if (results.Any())
-            {
-                var message = results.Select(r => r.Message).Aggregate((acc, v) => $"{acc}{NewLine}{v}");
-                throw new ArgumentOutOfRangeException(null, value, message);
-            }
-
-            Value = value;
         }
-
-        public string Value { get; }
-
-        public override string ToString() => Value;
 
         public static implicit operator string(ConstrainedString cs) => cs?.Value!;
     }
