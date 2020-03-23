@@ -46,17 +46,5 @@ namespace Screamer.Primitives.Tests.Constraints
                     s => constraint.Check(s).Violated.Should().BeFalse())
                 .QuickCheckThrowOnFailure();
         }
-
-        [Fact]
-        public void Foo()
-        {
-            // Fixture setup
-            var constraint = new RegexConstraint(pattern);
-
-            // Exercise system and verify outcome
-            constraint.Check("A");
-            constraint.Check("B");
-            constraint.Check("C");
-        }
     }
 }
