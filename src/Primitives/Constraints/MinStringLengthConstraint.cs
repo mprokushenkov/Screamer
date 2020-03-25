@@ -1,4 +1,5 @@
 ﻿using static System.String;
+using static Screamer.Primitives.Constraints.CheckResult;
 using static Screamer.Primitives.Guard;
 using static Screamer.Primitives.Constraints.Messages;
 
@@ -15,8 +16,8 @@ namespace Screamer.Primitives.Constraints
             CheckNull(value, nameof(value));
 
             return value.Length >= minLength
-                ? CheckResult.Succeeded
-                : CheckResult.CreateViolated(Format(MinStringLengthConstraint_Violation, minLength, value.Length));
+                ? Succeeded
+                : CreateViolated(Format(MinStringLengthConstraint_Violation, minLength, value.Length));
         }
     }
 }

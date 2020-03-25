@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using static System.String;
+using static Screamer.Primitives.Constraints.CheckResult;
 using static Screamer.Primitives.Guard;
 
 namespace Screamer.Primitives.Constraints
@@ -21,8 +22,8 @@ namespace Screamer.Primitives.Constraints
             CheckNull(value, nameof(value));
 
             return regexLazy.Value.IsMatch(value)
-                ? CheckResult.Succeeded
-                : CheckResult.CreateViolated(Format(Messages.RegexConstraint_Violation, pattern));
+                ? Succeeded
+                : CreateViolated(Format(Messages.RegexConstraint_Violation, pattern));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using static System.String;
+using static Screamer.Primitives.Constraints.CheckResult;
 using static Screamer.Primitives.Constraints.Messages;
 
 namespace Screamer.Primitives.Constraints
@@ -10,9 +10,9 @@ namespace Screamer.Primitives.Constraints
         {
             Guard.CheckNull(value, nameof(value));
 
-            return IsNullOrWhiteSpace(value) || value.Any(c => !char.IsDigit(c))
-                ? CheckResult.CreateViolated(NumericStringConstraint_Violation)
-                : CheckResult.Succeeded;
+            return value.Length == 0 || value.Any(c => !char.IsDigit(c))
+                ? CreateViolated(NumericStringConstraint_Violation)
+                : Succeeded;
         }
     }
 }
