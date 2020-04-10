@@ -4,6 +4,8 @@ namespace Screamer.Primitives.Constraints
 {
     public readonly struct CheckResult
     {
+        private static readonly CheckResult succeeded = new CheckResult(false, string.Empty);
+
         private CheckResult(bool violated, string message)
         {
             Violated = violated;
@@ -14,7 +16,7 @@ namespace Screamer.Primitives.Constraints
 
         public string Message { get; }
 
-        public static CheckResult Succeeded = new CheckResult(false, string.Empty);
+        public static CheckResult CreateSucceeded() => succeeded;
 
         public static CheckResult CreateViolated(string message) => new CheckResult(true, message);
     }

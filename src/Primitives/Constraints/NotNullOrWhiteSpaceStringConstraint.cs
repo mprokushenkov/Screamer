@@ -8,6 +8,6 @@ namespace Screamer.Primitives.Constraints
     {
         public CheckResult Check(string value) => IsNullOrWhiteSpace(value)
             ? CreateViolated(NotNullOrWhiteSpaceStringConstraint_Violation)
-            : Succeeded;
+            : CreateSucceeded();
     }
 }

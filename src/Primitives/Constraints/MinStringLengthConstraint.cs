@@ -16,7 +16,7 @@ namespace Screamer.Primitives.Constraints
             CheckNull(value, nameof(value));
 
             return value.Length >= minLength
-                ? Succeeded
+                ? CreateSucceeded()
                 : CreateViolated(Format(MinStringLengthConstraint_Violation, minLength, value.Length));
         }
     }

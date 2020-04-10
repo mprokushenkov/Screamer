@@ -12,7 +12,7 @@ namespace Screamer.Primitives.Constraints
 
             return value.Length == 0 || value.Any(c => !char.IsDigit(c))
                 ? CreateViolated(NumericStringConstraint_Violation)
-                : Succeeded;
+                : CreateSucceeded();
         }
     }
 }

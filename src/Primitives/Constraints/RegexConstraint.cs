@@ -22,7 +22,7 @@ namespace Screamer.Primitives.Constraints
             CheckNull(value, nameof(value));
 
             return regexLazy.Value.IsMatch(value)
-                ? Succeeded
+                ? CreateSucceeded()
                 : CreateViolated(Format(Messages.RegexConstraint_Violation, pattern));
         }
     }
