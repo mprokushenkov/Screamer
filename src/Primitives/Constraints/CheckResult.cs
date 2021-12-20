@@ -1,10 +1,10 @@
-﻿using static Screamer.Primitives.Guard;
+using static Screamer.Primitives.Guard;
 
 namespace Screamer.Primitives.Constraints
 {
     public readonly struct CheckResult
     {
-        private static readonly CheckResult succeeded = new CheckResult(false, string.Empty);
+        private static readonly CheckResult succeeded = new(false, string.Empty);
 
         private CheckResult(bool violated, string message)
         {
@@ -18,6 +18,6 @@ namespace Screamer.Primitives.Constraints
 
         public static CheckResult CreateSucceeded() => succeeded;
 
-        public static CheckResult CreateViolated(string message) => new CheckResult(true, message);
+        public static CheckResult CreateViolated(string message) => new(true, message);
     }
 }
