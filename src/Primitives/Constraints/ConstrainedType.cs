@@ -6,7 +6,7 @@ using static Screamer.Primitives.Guard;
 
 namespace Screamer.Primitives.Constraints
 {
-    public abstract class ConstrainedType<T>
+    public abstract class ConstrainedType<T> where T : notnull
     {
         protected ConstrainedType(T value, params IConstraint<T>[] constraints)
         {
@@ -25,6 +25,6 @@ namespace Screamer.Primitives.Constraints
 
         public T Value { get; }
 
-        public override string ToString() => Value?.ToString()!;
+        public override string ToString() => Value.ToString();
     }
 }

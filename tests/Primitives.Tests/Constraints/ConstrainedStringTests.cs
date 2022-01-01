@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;
@@ -53,16 +53,17 @@ namespace Screamer.Primitives.Tests.Constraints
         }
 
         [Fact]
-        public void ImplicitCastToStringShouldBeSuccessIfSourceIsNull()
+        public void ImplicitCastToStringShouldBeThrowException()
         {
             // Fixture setup
+            string actual;
 
             // Exercise system
             // ReSharper disable once ExpressionIsAlwaysNull
-            string actual = default(String2)!;
+            Action call = () => actual = default(String2)!;
 
             // Verify outcome
-            actual.Should().BeNull();
+            call.Should().Throw<ArgumentNullException>();
         }
 
         private class String2 : ConstrainedString

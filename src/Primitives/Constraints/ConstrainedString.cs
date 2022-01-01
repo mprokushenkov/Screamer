@@ -1,4 +1,6 @@
-﻿namespace Screamer.Primitives.Constraints
+using static Screamer.Primitives.Guard;
+
+namespace Screamer.Primitives.Constraints
 {
     public abstract class ConstrainedString : ConstrainedType<string>
     {
@@ -6,6 +8,6 @@
         {
         }
 
-        public static implicit operator string(ConstrainedString cs) => cs?.Value!;
+        public static implicit operator string(ConstrainedString subject) => CheckNull(subject?.Value!, nameof(subject));
     }
 }
