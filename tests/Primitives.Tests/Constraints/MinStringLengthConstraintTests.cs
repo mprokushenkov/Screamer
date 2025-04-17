@@ -1,7 +1,8 @@
-﻿using AutoFixture.Idioms;
+using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using FsCheck;
+using FsCheck.Fluent;
 using Screamer.Primitives.Constraints;
 using Xunit;
 
@@ -20,7 +21,7 @@ namespace Screamer.Primitives.Tests.Constraints
             // Fixture setup
             const uint minLength = 10;
 
-            var generator = from s in Arb.Generate<string>()
+            var generator = from s in ArbMap.Default.GeneratorFor<string>()
                 where s != null && s.Length >= minLength
                 select s;
 
@@ -39,7 +40,7 @@ namespace Screamer.Primitives.Tests.Constraints
             // Fixture setup
             const uint minLength = 10;
 
-            var generator = from s in Arb.Generate<string>()
+            var generator = from s in ArbMap.Default.GeneratorFor<string>()
                 where s != null && s.Length < minLength
                 select s;
 

@@ -25,6 +25,6 @@ namespace Screamer.Primitives.Constraints
 
         public T Value { get; }
 
-        public override string ToString() => Value.ToString();
+        public override string ToString() => Value.ToString()!;
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using FsCheck;
+using FsCheck.Fluent;
 using Screamer.Primitives.Constraints;
 using Xunit;
 
@@ -19,7 +20,7 @@ namespace Screamer.Primitives.Tests.Constraints
         public void NonWhiteSpaceStringStringShouldNeverViolateConstraint()
         {
             // Fixture setup
-            var generator = from s in Arb.Generate<string>()
+            var generator = from s in ArbMap.Default.GeneratorFor<string>()
                 where !string.IsNullOrWhiteSpace(s)
                 select s;
 
@@ -36,7 +37,7 @@ namespace Screamer.Primitives.Tests.Constraints
         public void WhiteSpaceStringConstraintStringShouldAlwaysViolateConstraint()
         {
             // Fixture setup
-            var generator = from s in Arb.Generate<string>()
+            var generator = from s in ArbMap.Default.GeneratorFor<string>()
                 where string.IsNullOrWhiteSpace(s)
                 select s;
 
