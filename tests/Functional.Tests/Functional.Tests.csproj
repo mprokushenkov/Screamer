@@ -5,7 +5,7 @@
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
     <RootNamespace>Bstm.Functional.Tests</RootNamespace>
-    <AssemblyName>Bstm.Bstm.Functional.Tests</AssemblyName>
+    <AssemblyName>Bstm.Functional.Tests</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

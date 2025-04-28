@@ -5,7 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Bstm.Functional</RootNamespace>
-    <AssemblyName>Bstm.Bstm.Functional</AssemblyName>
+    <AssemblyName>Bstm.Functional</AssemblyName>
+    <Product>Bstm class library</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
