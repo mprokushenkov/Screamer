@@ -1,0 +1,23 @@
+version: 1.0.0.{build}
+
+image: Visual Studio 2022
+
+pull_requests:
+  do_not_increment_build_number: true
+
+before_build:
+  - nuget restore "src/Screamer.sln"
+  - choco install "msbuild-sonarqube-runner" -y
+  - SonarScanner.MSBuild.exe begin /k:"Screamer" /o:"mprokushenkov-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="e5f91eb00224462317bc02e8e3a61cad51c31ae5"
+  
+build:
+  project: src\Screamer.sln
+  verbosity: minimal
+
+test:
+  assemblies:
+    only:
+    - src\**\bin\**\*UnitTests.dll
+    
+after_test:
+  - SonarScanner.MSBuild.exe end /d:sonar.login="e5f91eb00224462317bc02e8e3a61cad51c31ae5"
