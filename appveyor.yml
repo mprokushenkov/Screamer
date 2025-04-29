@@ -17,7 +17,7 @@ build:
 test:
   assemblies:
     only:
-    - tests\**\bin\**\*UnitTests.dll
+    - tests\**\bin\**\*Tests.dll
     
 after_test:
   - SonarScanner.MSBuild.exe end /d:sonar.login="3c28d4b623cea1a15afefecfda86f700818c8919"
