@@ -6,9 +6,9 @@ pull_requests:
   do_not_increment_build_number: true
 
 before_build:
-  - nuget restore "src/Screamer.sln"
+  - nuget restore "Screamer.sln"
   - choco install "msbuild-sonarqube-runner" -y
-  - SonarScanner.MSBuild.exe begin /k:"Screamer" /o:"mprokushenkov-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="e5f91eb00224462317bc02e8e3a61cad51c31ae5"
+  - SonarScanner.MSBuild.exe begin /k:"Screamer" /o:"mprokushenkov-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="3c28d4b623cea1a15afefecfda86f700818c8919"
   
 build:
   project: src\Screamer.sln
@@ -20,4 +20,4 @@ test:
     - src\**\bin\**\*UnitTests.dll
     
 after_test:
-  - SonarScanner.MSBuild.exe end /d:sonar.login="e5f91eb00224462317bc02e8e3a61cad51c31ae5"
+  - SonarScanner.MSBuild.exe end /d:sonar.login="3c28d4b623cea1a15afefecfda86f700818c8919"
