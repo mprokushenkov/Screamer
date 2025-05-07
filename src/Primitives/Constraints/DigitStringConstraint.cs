@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using static Screamer.Primitives.Constraints.CheckResult;
-using static Screamer.Primitives.Constraints.Messages;
+using System.Linq;
+using static Bstm.Primitives.Constraints.CheckResult;
+using static Bstm.Primitives.Constraints.Messages;
 
-namespace Screamer.Primitives.Constraints
+namespace Bstm.Primitives.Constraints
 {
     public sealed class DigitStringConstraint : IConstraint<string>
     {

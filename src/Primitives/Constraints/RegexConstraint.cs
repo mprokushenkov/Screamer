@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 using static System.String;
-using static Screamer.Primitives.Constraints.CheckResult;
-using static Screamer.Primitives.Guard;
+using static Bstm.Primitives.Constraints.CheckResult;
+using static Bstm.Primitives.Guard;
 
-namespace Screamer.Primitives.Constraints
+namespace Bstm.Primitives.Constraints
 {
     public sealed class RegexConstraint : IConstraint<string>
     {

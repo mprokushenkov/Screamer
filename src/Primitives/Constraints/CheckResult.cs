@@ -1,6 +1,6 @@
-using static Screamer.Primitives.Guard;
+using static Bstm.Primitives.Guard;
 
-namespace Screamer.Primitives.Constraints
+namespace Bstm.Primitives.Constraints
 {
     public readonly struct CheckResult
     {

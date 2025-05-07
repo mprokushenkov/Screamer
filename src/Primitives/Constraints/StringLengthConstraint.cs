@@ -1,9 +1,9 @@
-﻿using static System.String;
-using static Screamer.Primitives.Constraints.CheckResult;
-using static Screamer.Primitives.Constraints.Messages;
-using static Screamer.Primitives.Guard;
+using static System.String;
+using static Bstm.Primitives.Constraints.CheckResult;
+using static Bstm.Primitives.Constraints.Messages;
+using static Bstm.Primitives.Guard;
 
-namespace Screamer.Primitives.Constraints
+namespace Bstm.Primitives.Constraints
 {
     public sealed class StringLengthConstraint : IConstraint<string>
     {

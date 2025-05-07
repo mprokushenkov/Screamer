@@ -3,10 +3,10 @@ using AutoFixture.Xunit2;
 using FluentAssertions;
 using FsCheck;
 using FsCheck.Fluent;
-using Screamer.Primitives.Constraints;
+using Bstm.Primitives.Constraints;
 using Xunit;
 
-namespace Screamer.Primitives.Tests.Constraints
+namespace Bstm.Primitives.Tests.Constraints
 {
     public class MaxStringLengthConstraintTests
     {

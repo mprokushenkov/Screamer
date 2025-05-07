@@ -1,8 +1,8 @@
-﻿using static System.String;
-using static Screamer.Primitives.Constraints.CheckResult;
-using static Screamer.Primitives.Constraints.Messages;
+using static System.String;
+using static Bstm.Primitives.Constraints.CheckResult;
+using static Bstm.Primitives.Constraints.Messages;
 
-namespace Screamer.Primitives.Constraints
+namespace Bstm.Primitives.Constraints
 {
     public sealed class NotNullOrWhiteSpaceStringConstraint : IConstraint<string>
     {

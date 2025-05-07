@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <IsPackable>false</IsPackable>
-    <AssemblyName>Screamer.Primitives.Tests</AssemblyName>
-    <RootNamespace>Screamer.Primitives.Tests</RootNamespace>
+    <AssemblyName>Bstm.Primitives.Tests</AssemblyName>
+    <RootNamespace>Bstm.Primitives.Tests</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 

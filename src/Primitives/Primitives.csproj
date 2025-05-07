@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <AssemblyName>Screamer.Primitives</AssemblyName>
-    <RootNamespace>Screamer.Primitives</RootNamespace>
+    <AssemblyName>Bstm.Primitives</AssemblyName>
+    <RootNamespace>Bstm.Primitives</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 

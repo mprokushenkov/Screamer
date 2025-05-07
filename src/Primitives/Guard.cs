@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Screamer.Primitives
+namespace Bstm.Primitives
 {
     internal static class Guard
     {
