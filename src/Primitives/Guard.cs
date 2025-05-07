@@ -1,5 +1,3 @@
-using System;
-
 namespace Bstm.Primitives
 {
     internal static class Guard

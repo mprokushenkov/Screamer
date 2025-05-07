@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 using static System.String;
 using static Bstm.Primitives.Constraints.CheckResult;

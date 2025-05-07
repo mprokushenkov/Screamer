@@ -1,4 +1,3 @@
-using System.Linq;
 using AutoFixture.Xunit2;
 using FluentAssertions;
 using static Bstm.Functional.Idioms;

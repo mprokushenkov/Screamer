@@ -1,4 +1,3 @@
-using System.Linq;
 using AutoFixture.Idioms;
 using AutoFixture.Xunit2;
 using FluentAssertions;

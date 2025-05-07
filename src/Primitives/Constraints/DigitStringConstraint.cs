@@ -1,4 +1,3 @@
-using System.Linq;
 using static Bstm.Primitives.Constraints.CheckResult;
 using static Bstm.Primitives.Constraints.Messages;
 
